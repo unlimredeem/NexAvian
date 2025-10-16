@@ -121,6 +121,6 @@ app.get("/uploads/:filename", (req, res) => {
   else res.status(404).send("File not found");
 });
 
-app.get("*", (req, res) => res.sendFile(path.join(publicPath, "index.html")));
+app.get("/*", (req, res) => res.sendFile(path.join(publicPath, "index.html")));
 
 app.listen(PORT, () => console.log(`🚀 NexAvian backend running on port ${PORT}`));
