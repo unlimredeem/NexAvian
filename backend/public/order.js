@@ -25,7 +25,7 @@ function checkNumber() {
   return true;
 }
 
-function showConfirmation(msg, duration = 3000, isError = false) {
+function showConfirmation(msg, duration = 6000, isError = false) {
   confirmation.textContent = msg;
   confirmation.style.background = isError ? "#ff4d4f" : "#1db954";
   confirmation.classList.add("show");
@@ -50,7 +50,7 @@ orderForm.addEventListener("submit", async (e) => {
       orderForm.style.display = "none";
       otpSection.style.display = "block";
       let email = document.getElementById("email");
-      showConfirmation(`✅ OTP sent to ${email.value} for Order ID: ${data.orderId}`);
+      showConfirmation(`✅ OTP sent to ${email.value} for Order ID: ${data.orderId}. Note: Check Junk Folder for otp`);
     } else { showConfirmation(data.message || "❌ Something went wrong. Please try again.", 5000, true); }
   } catch { showConfirmation("❌ Server error. Try again later.", 5000, true); }
 });
