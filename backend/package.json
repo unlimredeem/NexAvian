@@ -1,0 +1,29 @@
+{
+  "name": "averian-backend",
+  "version": "1.0.0",
+  "description": "Backend for Averian website (orders, join requests, contact forms, OTP system)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "averian",
+    "express",
+    "backend",
+    "nodemailer",
+    "multer"
+  ],
+  "author": "Saurabh Prabhakar",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.9"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
