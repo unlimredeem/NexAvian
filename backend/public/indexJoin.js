@@ -48,7 +48,17 @@ joinForm.addEventListener("submit", async (e) => {
       currentJoinId = data.joinId;
       joinForm.style.display = "none";
       otpSection.style.display = "block";
-      showConfirmation(`✅ OTP sent to ${email} for Join ID: ${data.joinId}`, 5000);
+
+      // --- ADDED THIS PART TO SHOW THE WARNING ---
+      const warningElement = document.createElement("p");
+      warningElement.innerText = "Please check your junk/spam folder for the OTP.";
+      warningElement.style.marginTop = "10px";
+      warningElement.style.fontSize = "0.9em";
+      warningElement.style.color = "#888";
+      otpSection.appendChild(warningElement);
+      // ------------------------------------------
+      
+      showConfirmation(`✅ OTP sent to ${email} for Join ID: ${data.joinId}. Note: Check Junk Folder for otp`, 5000);
       saveUser(email, phone);
     } else { showConfirmation(`⚠️ ${data.message}`, 5000, true); }
   } catch { showConfirmation("❌ Something went wrong. Please try again later.", 5000, true); }
@@ -56,7 +66,7 @@ joinForm.addEventListener("submit", async (e) => {
 
 verifyOtpBtn.addEventListener("click", async () => {
   const otp = otpInput.value.trim();
-  if (!otp) { showConfirmation("⚠️ Please enter OTP!", 5000, true); otpInput.style.border = "5px solid #ff4d4f"; return; }
+  if (!otp) { showConfirmation("⚠️ Please enter OTP!", 5000, true); otpInput.style.border = "2px solid #ff4d4f"; return; }
   otpInput.style.border = "none";
   try {
     const verifyRes = await fetch("/api/join/verify-otp", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ joinId: currentJoinId, otp }) });

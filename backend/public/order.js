@@ -49,6 +49,16 @@ orderForm.addEventListener("submit", async (e) => {
       currentOrderId = data.orderId;
       orderForm.style.display = "none";
       otpSection.style.display = "block";
+
+      // --- ADDED THIS PART TO SHOW THE WARNING ---
+      const warningElement = document.createElement("p");
+      warningElement.innerText = "Please check your junk/spam folder for the OTP.";
+      warningElement.style.marginTop = "10px";
+      warningElement.style.fontSize = "0.9em";
+      warningElement.style.color = "#888";
+      otpSection.appendChild(warningElement);
+      // ------------------------------------------
+      
       let email = document.getElementById("email");
       showConfirmation(`✅ OTP sent to ${email.value} for Order ID: ${data.orderId}. Note: Check Junk Folder for otp`);
     } else { showConfirmation(data.message || "❌ Something went wrong. Please try again.", 5000, true); }
