@@ -30,20 +30,29 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+// Nodemailer transporter
 const transporter = nodemailer.createTransport({
   service: "gmail",
-  auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
+// Verify transporter on startup
+transporter.verify((err, success) => {
+  if (err) console.log("SMTP Error:", err);
+  else console.log("SMTP Ready to send emails!");
 });
 
 // Serve frontend pages
-app.get("/", (req, res) => res.sendFile(path.join(publicPath, "index.html")));
 app.get("/order", (req, res) => res.sendFile(path.join(publicPath, "order.html")));
 app.get("/join", (req, res) => res.sendFile(path.join(publicPath, "indexJoin.html")));
 
 // Order APIs
 app.get("/api/orders", (req, res) => res.json(orders));
 
-app.post("/api/order", upload.single("file"), (req, res) => {
+app.post("/api/order", upload.single("file"), async (req, res) => {
   const { name, email, phone, service, details } = req.body;
   if (!name || !email || !phone || !service || !details)
     return res.json({ status: "error", message: "Missing fields" });
@@ -55,45 +64,57 @@ app.post("/api/order", upload.single("file"), (req, res) => {
   const otp = Math.floor(100000 + Math.random() * 900000);
   orderOtpStore[orderId] = otp;
 
-  transporter.sendMail({
-    from: process.env.EMAIL_USER,
-    to: email,
-    subject: "Your NexAvian Order OTP",
-    text: `Hello ${name},\n\nYour OTP for order confirmation is: ${otp}\nOrder ID: ${orderId}\n\n— Averian Team`,
-  });
+  try {
+    // Send OTP to user
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "Your NexAvian Order OTP",
+      text: `Hello ${name},\n\nYour OTP for order confirmation is: ${otp}\nOrder ID: ${orderId}\n\n— Averian Team`,
+    });
 
-  transporter.sendMail({
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER + ",itsjatin080@gmail.com",
-    subject: "New Order Received - Averian",
-    text: `Order ID: ${orderId}\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nDetails: ${details}`,
-    attachments: req.file ? [{ filename: req.file.originalname, path: path.join(uploadDir, req.file.filename) }] : [],
-  });
+    // Notify admin
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER + ",itsjatin080@gmail.com",
+      subject: "New Order Received - Averian",
+      text: `Order ID: ${orderId}\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nDetails: ${details}`,
+      attachments: req.file ? [{ filename: req.file.originalname, path: path.join(uploadDir, req.file.filename) }] : [],
+    });
 
-  res.json({ status: "success", orderId });
+    res.json({ status: "success", orderId });
+  } catch (err) {
+    console.log("Email sending error:", err);
+    res.status(500).json({ status: "error", message: "Failed to send email" });
+  }
 });
 
-app.post("/api/order/verify-otp", (req, res) => {
+// Order OTP verification
+app.post("/api/order/verify-otp", async (req, res) => {
   const { orderId, otp } = req.body;
   if (!orderId || !otp) return res.json({ status: "error", message: "Missing fields" });
 
   if (orderOtpStore[orderId] && parseInt(otp) === orderOtpStore[orderId]) {
     delete orderOtpStore[orderId];
     const order = orders.find(o => o.id === orderId);
-    if (order)
-      transporter.sendMail({
-        from: process.env.EMAIL_USER,
-        to: order.email,
-        subject: "Your NexAvian Order is Confirmed ✅",
-        html: `<p>Hello <b>${order.name}</b>,</p>
-               <p>Your order with ID <b>${orderId}</b> has been successfully confirmed!</p>
-               <p>Join our Averian community for updates: 
-                  <a href="https://chat.whatsapp.com/LbeYZAwJd3xLICkabQFIuI" target="_blank">Click here to open WhatsApp group</a>
-               </p>
-               <p>Your order is being processed by our professionals. Thank you!</p>
-               <p>— NexAvian Team</p>`,
-      });
-
+    if (order) {
+      try {
+        await transporter.sendMail({
+          from: process.env.EMAIL_USER,
+          to: order.email,
+          subject: "Your NexAvian Order is Confirmed ✅",
+          html: `<p>Hello <b>${order.name}</b>,</p>
+                 <p>Your order with ID <b>${orderId}</b> has been successfully confirmed!</p>
+                 <p>Join our Averian community for updates: 
+                    <a href="https://chat.whatsapp.com/LbeYZAwJd3xLICkabQFIuI" target="_blank">Click here to open WhatsApp group</a>
+                 </p>
+                 <p>Your order is being processed by our professionals. Thank you!</p>
+                 <p>— NexAvian Team</p>`
+        });
+      } catch (err) {
+        console.log("Email sending error:", err);
+      }
+    }
     return res.json({ status: "success", message: "Order OTP verified and confirmation email sent!" });
   }
 
@@ -101,7 +122,7 @@ app.post("/api/order/verify-otp", (req, res) => {
 });
 
 // Join APIs
-app.post("/api/join", upload.single("file"), (req, res) => {
+app.post("/api/join", upload.single("file"), async (req, res) => {
   const { name, email, phone, skills, gender, dob } = req.body;
   if (!name || !email || !phone || !skills || !gender || !dob)
     return res.json({ status: "error", message: "Missing fields" });
@@ -113,45 +134,57 @@ app.post("/api/join", upload.single("file"), (req, res) => {
   const otp = Math.floor(100000 + Math.random() * 900000);
   joinOtpStore[joinId] = otp;
 
-  transporter.sendMail({
-    from: process.env.EMAIL_USER,
-    to: email,
-    subject: "Your NexAvian Join OTP",
-    text: `Hello ${name},\n\nYour OTP for joining Averian is: ${otp}\nJoin ID: ${joinId}\n\n— NexAvian Team`,
-  });
+  try {
+    // Send OTP to user
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "Your NexAvian Join OTP",
+      text: `Hello ${name},\n\nYour OTP for joining Averian is: ${otp}\nJoin ID: ${joinId}\n\n— NexAvian Team`,
+    });
 
-  transporter.sendMail({
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER + ",itsjatin080@gmail.com",
-    subject: "New Join Request - NexAvian",
-    text: `Join ID: ${joinId}\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nSkills: ${skills}\nGender: ${gender}\nDOB: ${dob}`,
-    attachments: req.file ? [{ filename: req.file.originalname, path: path.join(uploadDir, req.file.filename) }] : [],
-  });
+    // Notify admin
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER + ",itsjatin080@gmail.com",
+      subject: "New Join Request - NexAvian",
+      text: `Join ID: ${joinId}\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nSkills: ${skills}\nGender: ${gender}\nDOB: ${dob}`,
+      attachments: req.file ? [{ filename: req.file.originalname, path: path.join(uploadDir, req.file.filename) }] : [],
+    });
 
-  res.json({ status: "success", joinId });
+    res.json({ status: "success", joinId });
+  } catch (err) {
+    console.log("Email sending error:", err);
+    res.status(500).json({ status: "error", message: "Failed to send email" });
+  }
 });
 
-app.post("/api/join/verify-otp", (req, res) => {
+// Join OTP verification
+app.post("/api/join/verify-otp", async (req, res) => {
   const { joinId, otp } = req.body;
   if (!joinId || !otp) return res.json({ status: "error", message: "Missing fields" });
 
   if (joinOtpStore[joinId] && parseInt(otp) === joinOtpStore[joinId]) {
     delete joinOtpStore[joinId];
     const join = joinRequests.find(j => j.id === joinId);
-    if (join)
-      transporter.sendMail({
-        from: process.env.EMAIL_USER,
-        to: join.email,
-        subject: "NexAvian Form Submitted Successfully ✅",
-        html: `<p>Hello <b>${join.name}</b>,</p>
-               <p>Your form with ID <b>${joinId}</b> has been successfully submitted!</p>
-               <p>Our Averian team will review your application and contact you soon.</p>
-               <p>Join our community for updates: 
-                  <a href="https://chat.whatsapp.com/LbeYZAwJd3xLICkabQFIuI" target="_blank">Join WhatsApp Community</a>
-               </p>
-               <p>— NexAvian Team</p>`,
-      });
-
+    if (join) {
+      try {
+        await transporter.sendMail({
+          from: process.env.EMAIL_USER,
+          to: join.email,
+          subject: "NexAvian Form Submitted Successfully ✅",
+          html: `<p>Hello <b>${join.name}</b>,</p>
+                 <p>Your form with ID <b>${joinId}</b> has been successfully submitted!</p>
+                 <p>Our Averian team will review your application and contact you soon.</p>
+                 <p>Join our community for updates: 
+                    <a href="https://chat.whatsapp.com/LbeYZAwJd3xLICkabQFIuI" target="_blank">Join WhatsApp Community</a>
+                 </p>
+                 <p>— NexAvian Team</p>`
+        });
+      } catch (err) {
+        console.log("Email sending error:", err);
+      }
+    }
     return res.json({ status: "success", message: "Join OTP verified and confirmation email sent!" });
   }
 
@@ -168,10 +201,11 @@ app.post("/api/contact", async (req, res) => {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER + ",itsjatin080@gmail.com",
       subject: `New Contact Form Submission from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\nService: ${service || "Not specified"}\nMessage: ${message || "No message provided"}`,
+      text: `Name: ${name}\nEmail: ${email}\nService: ${service || "Not specified"}\nMessage: ${message || "No message provided"}`
     });
     res.json({ status: "success", message: "Message sent successfully!" });
-  } catch {
+  } catch (err) {
+    console.log("Email sending error:", err);
     res.status(500).json({ status: "error", message: "Failed to send message." });
   }
 });
@@ -183,7 +217,7 @@ app.get("/uploads/:filename", (req, res) => {
   else res.status(404).send("File not found");
 });
 
-// Catch-all route for SPA
+// Catch-all SPA route
 app.get("/", (req, res) => res.sendFile(path.join(publicPath, "index.html")));
 
 // Start server
