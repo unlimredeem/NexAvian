@@ -35,7 +35,7 @@ const transporter = nodemailer.createTransport({
   auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
 });
 
-app.get("/", (req, res) => res.sendFile(path.join(publicPath, "index.html")));
+app.get("/:path(*)", (req, res) => res.sendFile(path.join(publicPath, "index.html")));
 app.get("/order", (req, res) => res.sendFile(path.join(publicPath, "order.html")));
 app.get("/join", (req, res) => res.sendFile(path.join(publicPath, "indexJoin.html")));
 
