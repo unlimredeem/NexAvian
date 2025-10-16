@@ -88,7 +88,7 @@ joinForm.addEventListener("submit", async (e) => {
   // Submit form
   const formData = new FormData(joinForm);
   try {
-    const res = await fetch("http://localhost:5000/api/join", { method: "POST", body: formData });
+    const res = await fetch("https://nexavian.onrender.com/api/join", { method: "POST", body: formData });
     const data = await res.json();
     if (data.status === "success") {
       currentJoinId = data.joinId;
@@ -117,7 +117,7 @@ verifyOtpBtn.addEventListener("click", async () => {
   otpInput.style.border = "none";
 
   try {
-    const verifyRes = await fetch("http://localhost:5000/api/join/verify-otp", {
+    const verifyRes = await fetch("https://nexavian.onrender.com/api/join/verify-otp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ joinId: currentJoinId, otp }),

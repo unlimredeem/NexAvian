@@ -53,7 +53,7 @@ orderForm.addEventListener("submit", async (e) => {
   }
   const formData = new FormData(orderForm);
   try {
-    const res = await fetch("http://localhost:5000/api/order", {
+    const res = await fetch("https://nexavian.onrender.com/api/order", {
       method: "POST",
       body: formData,
     });
@@ -81,7 +81,7 @@ verifyOtpBtn.addEventListener("click", async () => {
   }
   otpInput.style.border = "none";
   try {
-    const verifyRes = await fetch("http://localhost:5000/api/order/verify-otp", {
+    const verifyRes = await fetch("https://nexavian.onrender.com/api/order/verify-otp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ orderId: currentOrderId, otp }),
