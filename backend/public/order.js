@@ -64,7 +64,7 @@ orderForm.addEventListener("submit", async (e) => {
 
       // --- ADDED THIS PART TO SHOW THE WARNING ---
       const warningElement = document.createElement("p");
-      warningElement.innerText = "Please check your junk/spam folder for the OTP.";
+      warningElement.innerText = "Can't find it? Be sure to check your Spam or Junk folder. Please check your junk/spam folder for the OTP.";
       warningElement.style.marginTop = "10px";
       warningElement.style.fontSize = "0.9em";
       warningElement.style.color = "#888";
