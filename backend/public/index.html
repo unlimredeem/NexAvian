@@ -12,17 +12,27 @@
 <canvas id="bgCanvas"></canvas>
 
 <header class="nav" id="navbar">
-  <div class="logo" id="logo">NexAvian<span class="dot">.</span></div>
-  <nav id="nav-links">
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#packages">Packages</a>
-    <a href="#packages">Membership</a>
-    <a href="#academy">Academy</a>
-    <a href="#contact">Contact</a>
-    <button id="themeToggle" class="theme-toggle">☀️</button>
-  </nav>
-  <a href="indexJoin.html" class="btn btn-primary nav-cta" id="joinBtn">Join Now</a>
+    <div class="logo" id="logo">NexAvian<span class="dot">.</span></div>
+
+    <nav class="nav-menu" id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#packages">Membership</a>
+        <a href="#academy">Academy</a>
+        <a href="#contact">Contact</a>
+        <a href="indexJoin.html" class="btn btn-primary nav-cta-mobile">Join Now</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle">☀️</button>
+        <a href="indexJoin.html" class="btn btn-primary nav-cta-desktop" id="joinBtn">Join Now</a>
+        <button class="hamburger" id="hamburger">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+    </div>
 </header>
 
 <main>

@@ -64,6 +64,18 @@ joinForm.addEventListener("submit", async (e) => {
   } catch { showConfirmation("❌ Something went wrong. Please try again later.", 5000, true); }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
+});
+
 verifyOtpBtn.addEventListener("click", async () => {
   const otp = otpInput.value.trim();
   if (!otp) { showConfirmation("⚠️ Please enter OTP!", 5000, true); otpInput.style.border = "2px solid #ff4d4f"; return; }

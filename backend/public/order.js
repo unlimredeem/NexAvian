@@ -25,6 +25,18 @@ function checkNumber() {
   return true;
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
+});
+
 function showConfirmation(msg, duration = 6000, isError = false) {
   confirmation.textContent = msg;
   confirmation.style.background = isError ? "#ff4d4f" : "#1db954";

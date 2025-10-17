@@ -6,19 +6,29 @@
   <title>Averian - Order Now</title>
   <link rel="stylesheet" href="order.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="styleJoin.css">
+  <!-- <link rel="stylesheet" href="styleJoin.css"> -->
   <link rel="icon" type="image/jpg" href="/frontend/go.jpg">
 </head>
 <body>
-<header class="nav">
-  <div class="logo">Averian<span class="dot">.</span></div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="#orderForm">Order Now</a>
-    <a href="#workflow">How It Works</a>
-    <a href="#trust">Trust & Payment</a>
-    <button id="themeToggle" class="theme-toggle">☀️</button>
-  </nav>
+  <header class="nav" id="navbar">
+    <div class="logo" id="logo">NexAvian<span class="dot">.</span></div>
+
+    <nav class="nav-menu" id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="#orderForm">Order Now</a>
+      <a href="#workflow">How It Works</a>
+      <a href="#trust">Trust & Payment</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle">☀️</button>
+        <a href="indexJoin.html" class="btn btn-primary nav-cta-desktop" id="joinBtn">Join Now</a>
+        <button class="hamburger" id="hamburger">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+    </div>
 </header>
 
 <main>
@@ -61,7 +71,7 @@
   <option value="App Development">📱 App Development</option>
   <option value="Logo Design">🎨 Logo Design</option>
   <option value="Social Media Management">📱 Social Media Management</option>
-  <option value="AI Chatbot Integration">🤖 AI Chatbot Integration</option> --> -->
+  <option value="AI Chatbot Integration">🤖 AI Chatbot Integration</option> -->
 </select>
 
 
@@ -70,7 +80,7 @@
 
       <label for="file">Upload File (optional)</label>
       <input type="file" id="file" name="file">
-                <a href="https://chat.whatsapp.com/LbeYZAwJd3xLICkabQFIuI" target="_blank" class="btn btn-outline">Join WhatsApp Community</a>
+<a href="https://chat.whatsapp.com/LbeYZAwJd3xLICkabQFIuI" target="_blank" class="btn btn-primary">Join WhatsApp Community</a>
 
 <div class="agreement-inline">
   <p id="text">
