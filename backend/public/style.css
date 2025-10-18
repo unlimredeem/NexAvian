@@ -196,6 +196,57 @@ main {
     justify-content: center;
 }
 
+.terminal.is-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  margin: 0;
+  border-radius: 0;
+  visibility: visible;
+}
+
+body.terminal-fullscreen-active > * {
+  visibility: hidden;
+}
+
+.terminal {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+#termBody {
+  font-family: 'Share Tech Mono', monospace;
+  color: #0f0;
+  line-height: 1.4;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.term-prompt {
+  display: flex;
+  align-items: center;
+  padding: 0 10px 10px;
+}
+
+.term-prompt span {
+  margin-right: 8px;
+}
+
+#termInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #0f0;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1em;
+  flex-grow: 1;
+  caret-color: #0f0;
+}
+
 .terminal {
     width: 380px;
     max-width: 92%;

@@ -8,18 +8,16 @@ const agreeWhatsapp = document.getElementById("agreeWhatsapp");
 const agreePayment = document.getElementById("agreePayment");
 let currentJoinId = null;
 
-// 🌗 Theme Toggle
+
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("light");
   themeToggle.textContent = document.body.classList.contains("light") ? "🌙" : "☀️";
 });
 
-// 🕒 Footer Year
+
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// ✅ Show confirmation messages
 function showConfirmation(msg, duration = 5000, isError = false) {
-  // If it's an error, show floating red box
   if (isError) {
     const old = document.querySelector(".floating-alert");
     if (old) old.remove();
@@ -55,8 +53,7 @@ function showConfirmation(msg, duration = 5000, isError = false) {
       popup.style.opacity = "0";
       setTimeout(() => popup.remove(), 400);
     }, duration);
-  } 
-  // Success or normal — use inline confirmation area
+  }
   else {
     confirmation.textContent = msg;
     confirmation.style.background = "#1db954";
@@ -68,7 +65,7 @@ function showConfirmation(msg, duration = 5000, isError = false) {
   }
 }
 
-// ✅ Helper functions
+
 function checkPhoneNumber(value) {
   return /^\d+$/.test(value.trim());
 }
@@ -89,7 +86,7 @@ function isUserAlreadyJoined(email, phone) {
   return users.some(user => user.email === email || user.phone === phone);
 }
 
-// ✅ Form Submission
+
 joinForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -101,7 +98,7 @@ joinForm.addEventListener("submit", async (e) => {
   const phone = joinForm.phone.value.trim();
 
   if (!agreeWhatsapp.checked || !agreePayment.checked) {
-    showConfirmation("⚠️ Please check both boxes to proceed!", 5000, true);
+    showConfirmation("⚠️ Please check both boxes!", 5000, true);
     return;
   }
 
@@ -116,7 +113,7 @@ joinForm.addEventListener("submit", async (e) => {
   }
 
   if (isUserAlreadyJoined(email, phone)) {
-    showConfirmation("⚠️ You have already submitted the form with this email or phone number!", 5000, true);
+    showConfirmation("⚠️ You have already submitted the form with this email or phone number! Contact us by joining our WhatsApp community. Thank you!", 5000, true);
     return;
   }
 
@@ -165,7 +162,7 @@ joinForm.addEventListener("submit", async (e) => {
   }
 });
 
-// ✅ Hamburger Menu
+
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("navMenu");
@@ -178,7 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ✅ OTP Verification
 verifyOtpBtn.addEventListener("click", async () => {
   const otp = otpInput.value.trim();
 
@@ -200,7 +196,7 @@ verifyOtpBtn.addEventListener("click", async () => {
     const verifyData = await verifyRes.json();
 
     if (verifyData.status === "success") {
-      sessionStorage.setItem("notification", "✅ Your join request has been submitted successfully!");
+      sessionStorage.setItem("notification", "✅ Your join request has been submitted successfully!. We will contact you soon. Thank You for joining us.");
       showConfirmation("🎉 OTP verified successfully! Redirecting...");
       otpInput.style.border = "2px solid #1db954";
       setTimeout(() => window.location.href = "index.html", 2000);

@@ -319,7 +319,7 @@ orderForm.addEventListener("submit", async (e) => {
       orderForm.style.display = "none";
       otpSection.style.display = "block";
       const email = document.getElementById("email").value;
-      showConfirmation(`📧 OTP has been sent to ${email}. Please check your inbox or spam folder.`);
+      showConfirmation(`OTP has been sent to ${email}. Please check your inbox or spam folder.`);
     } else {
       showConfirmation(data.message || "❌ Something went wrong. Please try again.", 5000, true);
     }
@@ -344,7 +344,7 @@ verifyOtpBtn.addEventListener("click", async () => {
     });
     const verifyData = await verifyRes.json();
     if (verifyData.status === "success") {
-      sessionStorage.setItem("notification", "✅ Your order has been submitted successfully!");
+      sessionStorage.setItem("notification", "✅ Your order has been submitted successfully!. We will contact you soon. Thank You for ordering with us.");
       showConfirmation("🎉 OTP verified successfully! Redirecting...");
       otpInput.style.border = "2px solid #1db954";
       setTimeout(() => (window.location.href = "index.html"), 2000);
