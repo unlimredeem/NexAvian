@@ -1,226 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Averian — Fastest, Smartest, Most Fun Digital Services</title>
-<link rel="stylesheet" href="style.css">
-<link rel="icon" type="image/jpg" href="/frontend/go.jpg">
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-<canvas id="bgCanvas"></canvas>
 
-<header class="nav" id="navbar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Averian — Fastest, Smartest, Most Fun Digital Services</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/jpg" href="/frontend/go.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <canvas id="bgCanvas"></canvas>
+
+  <header class="nav" id="navbar">
     <div class="logo" id="logo">NexAvian<span class="dot">.</span></div>
 
     <nav class="nav-menu" id="navMenu">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#packages">Packages</a>
-        <a href="#packages">Membership</a>
-        <a href="#academy">Academy</a>
-        <a href="#contact">Contact</a>
-        <a href="indexJoin.html" class="btn btn-primary nav-cta-mobile">Join Now</a>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#packages">Membership</a>
+      <a href="#academy">Academy</a>
+      <a href="#contact">Contact</a>
+      <a href="indexJoin.html" class="btn btn-primary nav-cta-mobile">Join Now</a>
     </nav>
 
     <div class="nav-actions">
-        <button id="themeToggle" class="theme-toggle">☀️</button>
-        <a href="indexJoin.html" class="btn btn-primary nav-cta-desktop" id="joinBtn">Join Now</a>
-        <button class="hamburger" id="hamburger">
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-        </button>
+      <button id="themeToggle" class="theme-toggle">☀️</button>
+      <a href="indexJoin.html" class="btn btn-primary nav-cta-desktop" id="joinBtn">Join Now</a>
+      <button class="hamburger" id="hamburger">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
     </div>
-</header>
+  </header>
 
-<main>
-  <section class="hero" id="home">
-    <div class="hero-left">
-      <h1 class="title" id="heroTitle">Fastest, Smartest, Most Fun Digital Services</h1>
-      <p class="subtitle" id="heroSubtitle">For creators, students, and small businesses</p>
-      <div class="hero-ctas" id="heroButtons">
-        <a href="#services" class="btn btn-primary">Order Now</a>
-        <a href="#packages" class="btn btn-outline">Explore Packages</a>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="terminal" id="terminalBox">
-        <div class="term-top">
-          <span class="dot-red"></span>
-          <span class="dot-yellow"></span>
-          <span class="dot-green"></span>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-left">
+        <h1 class="title" id="heroTitle">Fastest, Smartest, Most Fun Digital Services</h1>
+        <p class="subtitle" id="heroSubtitle">For creators, students, and small businesses</p>
+        <div class="hero-ctas" id="heroButtons">
+          <a href="#services" class="btn btn-primary">Order Now</a>
+          <a href="#packages" class="btn btn-outline">Explore Packages</a>
         </div>
-        <pre id="termBody">> initializing NexAvian.sh
+      </div>
+      <div class="hero-right">
+        <div class="terminal" id="terminalBox">
+          <div class="term-top">
+            <span class="dot-red"></span>
+            <span class="dot-yellow"></span>
+            <span class="dot-green"></span>
+          </div>
+          <pre id="termBody">> initializing NexAvian.sh
 > connecting to neural core...
 > services: video-edit, website, chatbot, learning and more
 > status: online ✅</pre>
-        <div id="termCursor">█</div>
+          <div id="termCursor">█</div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" id="services">
-    <h2 class="section-title">Our Services</h2>
-    <div class="cards" id="servicesGrid">
-      <article class="card">
-        <div class="card-icon">🎬</div>
-        <h3>Video Editing</h3>
-        <p>Professional YouTube, Reels, or Promo Editing</p>
-        <p class="price">₹100</p>
-        <button class="btn pack-btn" id="videoBtn">Order Now</button>
-      </article>
+    <section class="section" id="services">
+      <h2 class="section-title">Our Services</h2>
+      <div class="cards" id="servicesGrid">
+        <article class="card">
+          <div class="card-icon">🎬</div>
+          <h3>Video Editing</h3>
+          <p>Professional YouTube, Reels, or Promo Editing</p>
+          <p class="price">₹100</p>
+          <button class="btn pack-btn" id="videoBtn">Order Now</button>
+        </article>
 
-      <article class="card">
-        <div class="card-icon">🖼️</div>
-        <h3>Thumbnail Designing</h3>
-        <p>Eye-catching designs to boost CTR</p>
-        <p class="price">₹50</p>
-        <button class="btn pack-btn" id="thumbBtn">Order Now</button>
-      </article>
+        <article class="card">
+          <div class="card-icon">🖼️</div>
+          <h3>Thumbnail Designing</h3>
+          <p>Eye-catching designs to boost CTR</p>
+          <p class="price">₹50</p>
+          <button class="btn pack-btn" id="thumbBtn">Order Now</button>
+        </article>
 
-      <article class="card">
-        <div class="card-icon">🌐</div>
-        <h3>Website Development</h3>
-        <p>Landing Pages, Portfolios, or Full Business Sites</p>
-        <p class="price">₹199</p>
-        <button class="btn pack-btn" id="webBtn">Order Now</button>
-      </article>
+        <article class="card">
+          <div class="card-icon">🌐</div>
+          <h3>Website Development</h3>
+          <p>Landing Pages, Portfolios, or Full Business Sites</p>
+          <p class="price">₹199</p>
+          <button class="btn pack-btn" id="webBtn">Order Now</button>
+        </article>
 
-      <article class="card">
-        <div class="card-icon">📱</div>
-        <h3>App Development</h3>
-        <p>Android & iOS apps for businesses and creators</p>
-        <p class="price">₹299</p>
-        <button class="btn pack-btn" id="appBtn">Order Now</button>
-      </article>
+        <article class="card">
+          <div class="card-icon">📱</div>
+          <h3>App Development</h3>
+          <p>Android & iOS apps for businesses and creators</p>
+          <p class="price">₹299</p>
+          <button class="btn pack-btn" id="appBtn">Order Now</button>
+        </article>
 
-      <article class="card">
-        <div class="card-icon">🪧</div>
-        <h3>Banner / Poster Designing</h3>
-        <p>Perfect for ads, promotions, and social media</p>
-        <p class="price">₹199</p>
-        <button class="btn pack-btn" id="bannerBtn">Order Now</button>
-      </article>
+        <article class="card">
+          <div class="card-icon">🪧</div>
+          <h3>Banner / Poster Designing</h3>
+          <p>Perfect for ads, promotions, and social media</p>
+          <p class="price">₹199</p>
+          <button class="btn pack-btn" id="bannerBtn">Order Now</button>
+        </article>
 
-      <article class="card">
-        <div class="card-icon">🎨</div>
-        <h3>Logo Designing</h3>
-        <p>Unique logos to build your brand identity</p>
-        <p class="price">₹199</p>
-        <button class="btn pack-btn" id="logoBtn">Order Now</button>
-      </article>
+        <article class="card">
+          <div class="card-icon">🎨</div>
+          <h3>Logo Designing</h3>
+          <p>Unique logos to build your brand identity</p>
+          <p class="price">₹199</p>
+          <button class="btn pack-btn" id="logoBtn">Order Now</button>
+        </article>
 
-      <article class="card">
-        <div class="card-icon">🤖</div>
-        <h3>AI Services</h3>
-        <p>Custom AI systems for shops, creators & businesses</p>
-        <p class="price">₹299</p>
-        <button class="btn pack-btn" id="aiBtn">Order Now</button>
-      </article>
+        <article class="card">
+          <div class="card-icon">🤖</div>
+          <h3>AI Services</h3>
+          <p>Custom AI systems for shops, creators & businesses</p>
+          <p class="price">₹299</p>
+          <button class="btn pack-btn" id="aiBtn">Order Now</button>
+        </article>
 
-      <article class="card">
-        <div class="card-icon">💬</div>
-        <h3>Chatbot Integration</h3>
-        <p>Automate customer chats for WhatsApp or Web</p>
-        <p class="price">₹399</p>
-        <button class="btn pack-btn" id="chatbotBtn">Order Now</button>
-      </article>
-    </div>
-  </section>
-
-  <section class="section" id="how">
-    <h2 class="section-title">How NexAvian Works</h2>
-    <div class="steps" id="stepsGrid">
-      <div class="step"><div class="step-num">1</div><div class="step-txt">Select Service / Package</div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-txt">Fill Details / Upload Files</div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-txt">Get Order ID & Status Updates</div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-txt">Receive Delivery</div></div>
-    </div>
-  </section>
-
-  <section class="section" id="features">
-    <h2 class="section-title">Why Choose NexAvian</h2>
-    <div class="usp-grid" id="uspGrid">
-      <div class="usp-item">⚡ <span>Instant Order → Fastest delivery</span></div>
-      <div class="usp-item">🧠 <span>AI + Human Combo → Cheap & Fast</span></div>
-      <div class="usp-item">🕹 <span>Gamified Dashboard → Fun + Loyalty</span></div>
-      <div class="usp-item">📚 <span>Learn as You Order → Skill Boost</span></div>
-      <div class="usp-item">🪙 <span>Averian Coins → Easy Payment</span></div>
-      <div class="usp-item">👑 <span>Membership → Stable Income</span></div>
-      <div class="usp-item">🌐 <span>Community → Organic Growth</span></div>
-    </div>
-  </section>
-
-  <section class="section" id="packages">
-    <h2 class="section-title">Packages & Membership</h2>
-    <div class="membership-info"><p>Choose your perfect plan — whether you’re a creator, student, or business owner.</p></div>
-    <div class="membership-plans" id="membershipPlans">
-      <div class="pack">
-        <h3>🎬 Starter Pack — ₹499/month</h3>
-        <p>• 5 Full-Length Videos + 1 Short Free<br>• Basic Thumbnail & Logo<br>• 24-hour Delivery Support</p>
-        <button class="btn pack-btn">Buy</button>
+        <article class="card">
+          <div class="card-icon">💬</div>
+          <h3>Chatbot Integration</h3>
+          <p>Automate customer chats for WhatsApp or Web</p>
+          <p class="price">₹399</p>
+          <button class="btn pack-btn" id="chatbotBtn">Order Now</button>
+        </article>
       </div>
+    </section>
 
-      <div class="pack">
-        <h3>⚡ Creator Pro — ₹999/month</h3>
-        <p>• 10 Full Videos + 5 Thumbnails<br>• Priority Editing Queue<br>• 10% off Website Development<br>• Access to AI Tools</p>
-        <button class="btn pack-btn">Buy Pro</button>
+    <section class="section" id="how">
+      <h2 class="section-title">How NexAvian Works</h2>
+      <div class="steps" id="stepsGrid">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-txt">Select Service / Package</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-txt">Fill Details / Upload Files</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-txt">Get Order ID & Status Updates</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-txt">Receive Delivery</div>
+        </div>
       </div>
+    </section>
 
-      <div class="pack">
-        <h3>👑 Business Elite — ₹4999/month</h3>
-        <p>• Unlimited Edits, Thumbnails & Banners<br>• Dedicated Manager<br>• Free Website / App Support<br>• Priority 24/7 Service</p>
-        <button class="btn pack-btn">Buy Up</button>
+    <section class="section" id="features">
+      <h2 class="section-title">Why Choose NexAvian</h2>
+      <div class="usp-grid" id="uspGrid">
+        <div class="usp-item">⚡ <span>Instant Order → Fastest delivery</span></div>
+        <div class="usp-item">🧠 <span>AI + Human Combo → Cheap & Fast</span></div>
+        <div class="usp-item">🕹 <span>Gamified Dashboard → Fun + Loyalty</span></div>
+        <div class="usp-item">📚 <span>Learn as You Order → Skill Boost</span></div>
+        <div class="usp-item">🪙 <span>Averian Coins → Easy Payment</span></div>
+        <div class="usp-item">👑 <span>Membership → Stable Income</span></div>
+        <div class="usp-item">🌐 <span>Community → Organic Growth</span></div>
       </div>
+    </section>
 
-      <div class="pack">
-        <h3>🎓 Student Creator — ₹299/month</h3>
-        <p>• 3 Video Edits / month<br>• Free Thumbnail with Each Video<br>• Early Access to Averian Academy<br>• Earn Referral Coins</p>
-        <button class="btn pack-btn">Join Student Plan</button>
+    <section class="section" id="packages">
+      <h2 class="section-title">Packages & Membership</h2>
+      <div class="membership-info">
+        <p>Choose your perfect plan — whether you’re a creator, student, or business owner.</p>
       </div>
-    </div>
-  </section>
+      <div class="membership-plans" id="membershipPlans">
+        <div class="pack">
+          <h3>🎬 Starter Pack — ₹499/month</h3>
+          <p>• 5 Full-Length Videos + 1 Short Free<br>• Basic Thumbnail & Logo<br>• 24-hour Delivery Support</p>
+          <button class="btn pack-btn">Buy</button>
+        </div>
 
-  <section class="section" id="testimonials">
-    <h2 class="section-title">What Our Clients Say</h2>
-    <div class="test-grid" id="testGrid">
-      <blockquote class="test">“Amazing turnaround and quality. Saved me hours.” — Riya</blockquote>
-      <blockquote class="test">“The gamified dashboard keeps me coming back.” — Aman</blockquote>
-      <blockquote class="test">“Perfect thumbnails every time.” — Priya</blockquote>
-    </div>
-  </section>
+        <div class="pack">
+          <h3>⚡ Creator Pro — ₹999/month</h3>
+          <p>• 10 Full Videos + 5 Thumbnails<br>• Priority Editing Queue<br>• 10% off Website Development<br>• Access to
+            AI Tools</p>
+          <button class="btn pack-btn">Buy Pro</button>
+        </div>
 
-  <section class="section" id="academy">
-    <h2 class="section-title">Learn & Earn With NexAvian</h2>
-    <p>Short tutorials + Skill Programs | Learn while ordering | Mini skill programs | Become a freelancer</p>
-    <a href="#academyJoin"  aria-disabled="true" class="btn btn-primary" id="academyJoinBtn">Join Academy</a>
-  </section>
+        <div class="pack">
+          <h3>👑 Business Elite — ₹4999/month</h3>
+          <p>• Unlimited Edits, Thumbnails & Banners<br>• Dedicated Manager<br>• Free Website / App Support<br>•
+            Priority 24/7 Service</p>
+          <button class="btn pack-btn">Buy Up</button>
+        </div>
 
-  <section class="section" id="about">
-    <h2 class="section-title">About NexAvian</h2>
-    <p>Vision: Fastest, Smartest, Most Fun Digital Services</p>
-    <p>Mission: Build a creative, AI-powered platform for creators and businesses</p>
-    <p>Team: CEO, Tech Lead, Creative Lead, Client Manager</p>
-  </section>
+        <div class="pack">
+          <h3>🎓 Student Creator — ₹299/month</h3>
+          <p>• 3 Video Edits / month<br>• Free Thumbnail with Each Video<br>• Early Access to Averian Academy<br>• Earn
+            Referral Coins</p>
+          <button class="btn pack-btn">Join Student Plan</button>
+        </div>
+      </div>
+    </section>
 
-  <section class="section" id="contact">
-    <h2 class="section-title">Get In Touch</h2>
-    <form id="contactForm" class="contact-form">
-      <input type="text" id="contactName" placeholder="Name" required>
-      <input type="email" id="contactEmail" placeholder="Email" required>
-      <input type="text" id="contactService" placeholder="Service Interested In or Service Not Found On Us">
-      <textarea id="contactMessage" placeholder="Message (About The Service)"></textarea>
-      <button type="submit" id="btnsubmit" class="btn btn-primary">Send Message</button>
-    </form>
-    <div class="contact-buttons">
-      <a href="https://chat.whatsapp.com/LbeYZAwJd3xLICkabQFIuI" target="_blank" id="waBtn" class="btn btn-outline">WhatsApp</a>
-      <a href="mailto:info@averian.com" target="_blank" class="btn btn-outline">Email</a>
-    </div>
-  </section>
+    <section class="section" id="testimonials">
+      <h2 class="section-title">What Our Clients Say</h2>
+      <div class="test-grid" id="testGrid">
+        <blockquote class="test">“Amazing turnaround and quality. Saved me hours.” — Riya</blockquote>
+        <blockquote class="test">“The gamified dashboard keeps me coming back.” — Aman</blockquote>
+        <blockquote class="test">“Perfect thumbnails every time.” — Priya</blockquote>
+      </div>
+    </section>
 
-<div id="globalNotification" style="
+    <section class="section" id="academy">
+      <h2 class="section-title">Learn & Earn With NexAvian</h2>
+      <p>Short tutorials + Skill Programs | Learn while ordering | Mini skill programs | Become a freelancer</p>
+      <a href="#academyJoin" aria-disabled="true" class="btn btn-primary" id="academyJoinBtn">Join Academy</a>
+    </section>
+
+    <section class="section" id="about">
+      <h2 class="section-title">About NexAvian</h2>
+      <p>Vision: Fastest, Smartest, Most Fun Digital Services</p>
+      <p>Mission: Build a creative, AI-powered platform for creators and businesses</p>
+      <p>Team: CEO, Tech Lead, Creative Lead, Client Manager</p>
+    </section>
+
+    <section class="section" id="contact">
+      <h2 class="section-title">Get In Touch</h2>
+      <form id="contactForm" class="contact-form">
+        <input type="text" id="contactName" placeholder="Name" required>
+        <input type="email" id="contactEmail" placeholder="Email" required>
+        <input type="text" id="contactService" placeholder="Service Interested In or Service Not Found On Us">
+        <textarea id="contactMessage" placeholder="Message (About The Service)"></textarea>
+        <button type="submit" id="btnsubmit" class="btn btn-primary">Send Message</button>
+      </form>
+      <div class="contact-buttons">
+        <a href="https://chat.whatsapp.com/LbeYZAwJd3xLICkabQFIuI" target="_blank" id="waBtn"
+          class="btn btn-outline">WhatsApp</a>
+        <a href="mailto:info@averian.com" target="_blank" class="btn btn-outline">Email</a>
+      </div>
+    </section>
+
+    <div id="globalNotification" style="
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -234,40 +255,41 @@
   font-weight: bold;
 "></div>
 
-<script>
-window.addEventListener("DOMContentLoaded", () => {
-  const notificationBox = document.getElementById("globalNotification");
-  const msg = sessionStorage.getItem("notification");
-  if (msg) {
-    const isError = msg.startsWith("❌");
-    notificationBox.style.background = isError ? "#ff4d4f" : "#1db954";
-    notificationBox.textContent = msg;
-    notificationBox.style.display = "block";
-    setTimeout(() => { notificationBox.style.display = "none"; }, 5000);
-    sessionStorage.removeItem("notification");
-  }
-});
-</script>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const notificationBox = document.getElementById("globalNotification");
+        const msg = sessionStorage.getItem("notification");
+        if (msg) {
+          const isError = msg.startsWith("❌");
+          notificationBox.style.background = isError ? "#ff4d4f" : "#1db954";
+          notificationBox.textContent = msg;
+          notificationBox.style.display = "block";
+          setTimeout(() => { notificationBox.style.display = "none"; }, 5000);
+          sessionStorage.removeItem("notification");
+        }
+      });
+    </script>
 
-  <footer class="footer" id="footer">
-    <div class="logo">NexAvian<span class="dot">.</span></div>
-    <div class="quick-links">
-      <a href="#home">Home</a> | 
-      <a href="#services">Services</a> | 
-      <a href="#packages">Packages</a> | 
-      <a href="#academy">Academy</a> | 
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="socials">
-      <a target="_blank" href="https://www.instagram.com/averian.official/">Instagram</a> | 
-      <a href="#">YouTube</a> | 
-      <a href="#">LinkedIn</a> | 
-      <a href="#">WhatsApp</a>
-    </div>
-    <p>© <span id="year"></span> NexAvian | All rights reserved</p>
-  </footer>
-</main>
+    <footer class="footer" id="footer">
+      <div class="logo">NexAvian<span class="dot">.</span></div>
+      <div class="quick-links">
+        <a href="#home">Home</a> |
+        <a href="#services">Services</a> |
+        <a href="#packages">Packages</a> |
+        <a href="#academy">Academy</a> |
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="socials">
+        <a target="_blank" href="https://www.instagram.com/averian.official/">Instagram</a> |
+        <a href="#">YouTube</a> |
+        <a href="#">LinkedIn</a> |
+        <a href="#">WhatsApp</a>
+      </div>
+      <p>© <span id="year"></span> NexAvian | All rights reserved</p>
+    </footer>
+  </main>
 
-<script src="index.js"></script>
+  <script src="index.js"></script>
 </body>
+
 </html>
