@@ -96,14 +96,39 @@
 
       <button type="submit" class="btn">Submit Order</button>
     </form>
-
+<div class="payment-section" style="display: flex;">
+    
+    <div class="qr-code-container">
+        <img src="https://www.kali.org/wallpapers/images/2025/kali-tiles-purple.jpg" alt="QR Code for Payment" id="qrcode">
+    </div>
+    
+    <div class="payment-options">
+        <h4>Choose Your Payment Method</h4>
+        
+        <div class="option">
+            <input type="radio" id="payNow" name="paymentOption" value="now" checked>
+            <label for="payNow">
+                <strong>Pay 10% Advance Now (Recommended)</strong>
+                <p>Secure your order and get priority service with a small advance payment.</p>
+            </label>
+        </div>
+        
+        <div class="option">
+            <input type="radio" id="payLater" name="paymentOption" value="later">
+            <label for="payLater">
+                <strong>Pay in Full After Delivery</strong>
+                <p>Complete your payment once you have received and approved the final work.</p>
+            </label>
+        </div>
+    </div>
+    
+</div>
 <div id="otpSection" style="display:none;">
   <input type="text" id="otpInput" placeholder="Enter OTP" maxlength="6">
   <button id="verifyOtpBtn">Verify OTP</button>
   <p id="otpWarning" class="otp-warning-text"></p>
 </div>
       <p id="confirmation" class="confirmation"></p>
-
   </section>
 </main>
 

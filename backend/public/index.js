@@ -83,25 +83,24 @@ fullscreenButton.addEventListener('click', () => {
     termInput.focus();
   });
 
-  // Handle the user's input
-  termInput.addEventListener('keydown', (event) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
+  // termInput.addEventListener('keydown', (event) => {
+  //   if (event.key === "Enter") {
+  //     event.preventDefault();
 
-      const command = termInput.value.trim();
+  //     const command = termInput.value.trim();
 
-      if (command) {
-        const userCommandDiv = document.createElement('div');
-        userCommandDiv.textContent = `> ${command}`;
-        termBody.appendChild(userCommandDiv);
-        const responseDiv = document.createElement('div');
-        responseDiv.textContent = `> status: online, Press Green button to get back`;
-        termBody.appendChild(responseDiv);
-        termInput.value = '';
-        termBody.scrollTop = termBody.scrollHeight;
-      }
-    }
-  });
+  //     if (command) {
+  //       const userCommandDiv = document.createElement('div');
+  //       userCommandDiv.textContent = `> ${command}`;
+  //       termBody.appendChild(userCommandDiv);
+  //       const responseDiv = document.createElement('div');
+  //       responseDiv.textContent = `> status: online, Press Green button to get back`;
+  //       termBody.appendChild(responseDiv);
+  //       termInput.value = '';
+  //       termBody.scrollTop = termBody.scrollHeight;
+  //     }
+  //   }
+  // });
 
 });
 

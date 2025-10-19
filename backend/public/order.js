@@ -328,6 +328,12 @@ orderForm.addEventListener("submit", async (e) => {
   }
 });
 
+function qrcode() {
+  let qr = document.getElementById("qrcode");
+  qr.src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + currentOrderId;
+  document.querySelector(".qr").style.display = "flex";
+}
+
 verifyOtpBtn.addEventListener("click", async () => {
   const otp = otpInput.value.trim();
   if (!otp) {
@@ -347,7 +353,10 @@ verifyOtpBtn.addEventListener("click", async () => {
       sessionStorage.setItem("notification", "✅ Your order has been submitted successfully!. We will contact you soon. Thank You for ordering with us.");
       showConfirmation("🎉 OTP verified successfully! Redirecting...");
       otpInput.style.border = "2px solid #1db954";
-      setTimeout(() => (window.location.href = "index.html"), 2000);
+      setTimeout(() => {
+        otpSection.style.display = "none";
+        qrcode()
+      }, 1000);
     } else {
       showConfirmation("❌ Incorrect OTP. Please try again.", 5000, true);
       otpInput.style.border = "2px solid #ff4d4f";
@@ -357,3 +366,5 @@ verifyOtpBtn.addEventListener("click", async () => {
     otpInput.style.border = "2px solid #ff4d4f";
   }
 });
+
+qrcode();

@@ -212,7 +212,7 @@ body.terminal-fullscreen-active > * {
   visibility: hidden;
 }
 
-.terminal {
+/* .terminal {
   height: 300px;
   display: flex;
   flex-direction: column;
@@ -235,17 +235,7 @@ body.terminal-fullscreen-active > * {
 .term-prompt span {
   margin-right: 8px;
 }
-
-#termInput {
-  background: transparent;
-  border: none;
-  outline: none;
-  color: #0f0;
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 1em;
-  flex-grow: 1;
-  caret-color: #0f0;
-}
+ */
 
 .terminal {
     width: 380px;
@@ -292,6 +282,130 @@ body.terminal-fullscreen-active > * {
     font-size: 0.92rem;
     line-height: 1.35;
     color: var(--accent);
+}
+
+/* ---------- PAYMENT SECTION STYLES ---------- */
+.payment-section {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px;
+    max-width: 800px;
+    margin: 40px auto;
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.qr-code-container {
+    flex-shrink: 0;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: var(--radius);
+}
+#qrcode {
+    display: block;
+    width: 180px;
+    height: 180px;
+    border-radius: 8px;
+}
+
+.payment-options {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.payment-options h4 {
+    color: var(--accent);
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+}
+
+.option {
+    position: relative;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.3s var(--ease);
+    cursor: pointer;
+}
+.option:hover {
+    border-color: var(--accent-strong);
+}
+.option label {
+    display: block;
+    padding: 16px 16px 16px 50px;
+    cursor: pointer;
+}
+.option label strong {
+    color: var(--text);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+}
+.option label p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.option label::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+.option label::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    transition: transform 0.2s var(--ease);
+}
+.option input[type="radio"]:checked + label::before {
+    border-color: var(--accent);
+}
+.option input[type="radio"]:checked + label::after {
+    transform: translateY(-50%) scale(1);
+}
+.option input[type="radio"]:checked ~ .option,
+.option:has(input:checked) {
+    border-color: var(--accent);
+}
+.option input[type="radio"]:checked {
+
+}
+
+
+@media (max-width: 768px) {
+    .payment-section {
+        flex-direction: column;
+    }
+    .qr-code-container {
+        margin: 0 auto 20px;
+    }
+    .payment-options h4 {
+        text-align: center;
+    }
 }
 
 #termCursor {
@@ -379,6 +493,72 @@ body.terminal-fullscreen-active > * {
     gap: 12px;
     max-width: 500px;
     margin: 20px auto;
+}
+
+#otpSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 32px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+#otpInput {
+    width: 100%;
+    padding: 14px 20px;
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 0.5em;
+    outline: none;
+    transition: all 0.3s var(--ease);
+}
+
+#otpInput:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(0, 234, 255, 0.2);
+}
+
+#otpInput::placeholder {
+    color: var(--muted);
+    font-size: 1.2rem;
+    letter-spacing: normal;
+}
+
+#verifyOtpBtn {
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+    color: #001018;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+#verifyOtpBtn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 234, 255, 0.1);
+}
+
+#otpWarning {
+    color: var(--muted);
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 5px 0 0;
 }
 
 .contact-form input,
