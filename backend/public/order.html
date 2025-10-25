@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
   <!-- <link rel="stylesheet" href="styleJoin.css"> -->
   <link rel="icon" type="image/jpg" href="/frontend/go.jpg">
 </head>
+
 <body>
   <header class="nav" id="navbar">
     <div class="logo" id="logo">NexAverian</div>
@@ -21,145 +23,159 @@
     </nav>
 
     <div class="nav-actions">
-        <button id="themeToggle" class="theme-toggle">☀️</button>
-        <a href="indexJoin.html" class="btn btn-primary nav-cta-desktop" id="joinBtn">Join Us</a>
-        <button class="hamburger" id="hamburger">
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-        </button>
+      <button id="themeToggle" class="theme-toggle">☀️</button>
+            <a href="order.html" class="btn btn-outline nav-cta-desktop" id="orderbtn2">Order Now</a>
+      <a href="indexJoin.html" class="btn btn-primary nav-cta-desktop" id="joinBtn">Join Us</a>
+      <button class="hamburger" id="hamburger">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
     </div>
-</header>
+  </header>
 
-<main>
-  <section class="order-section">
-    <h1>Place Your Order</h1>
+  <main>
+    <section class="order-section">
+      <h1>Place Your Order</h1>
 
-    <!-- ORDER FORM -->
-    <form id="orderForm">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
+      <!-- ORDER FORM -->
+      <form id="orderForm">
+        <label for="name">Name</label>
+        <input type="text" autocomplete="off" id="name" name="name" required>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
 
-      <label for="phone">Phone Number(Must Enter Real Number, We will contact you from number)</label>
-      <input type="tel" id="phone" name="phone" required>
-      <p id="text1"></p>
-      <label for="service">Select Service</label>
-      <select id="service" name="service" required>
-        <option value="">--Choose Service--</option>
-        <option value="AI Tools">I want to buy Membership</option>
-        <option value="YouTube Creator Services">🎬Video Editing</option>
-        <option value="Small Business Services">🖼️Thumbnail Designing</option>
-        <option value="AI Tools">🤖 AI Tools</option>
-        <option value="Web Development">🌐 Web Development</option>
-        <option value="App Development">📱 App Development</option>
-        <option value="Logo Design">🎨 Logo Design</option>
-        <option value="Social Media Management">📱 Social Media Management</option>
-        <option value="AI Chatbot Integration">🤖 AI Chatbot Integration</option>
-    </select>
-<label for="Membership">Select Membership (Optional,If want)</label>
-<select id="Membership" name="Membership" >
-  <option value="">--Choose Membership--</option>
-  <option value="5 + 1 short editing">5 Full Lenght Video Editing + 1 short Video Editing Free</option>
-  <option value="full cerative">Full Creative Support</option>
-  <option value="">10 Full Videos + 5 Thumbnails, Priority Editing Queue, 10% off Website Development,  Access to AI Tools</option>
-  <option value=""> Unlimited Edits, Thumbnails & Banners, Free Website / App Support, Priority 24/7 Service</option>
-  <option value="">3 Video Edits / month, Free Thumbnail with Each Video, Early Access to Averian Academy, Earn Referral Coins</option>
-  <!-- <--<option value="Web Development">🌐 Web Development</option>
+        <label for="phone">Phone Number(Must Enter Real Number, We will contact you from number)</label>
+        <input type="tel" id="phone" autocomplete="cc-number" name="phone" required>
+        <p id="text1"></p>
+        <label for="service">Select Service</label>
+        <select id="service" name="service" required>
+          <option value="">--Choose Service--</option>
+          <option value="AI Tools">I want to buy Membership</option>
+          <option value="YouTube Creator Services">🎬Video Editing</option>
+          <option value="Small Business Services">🖼️Thumbnail Designing</option>
+          <option value="AI Tools">🤖 AI Tools</option>
+          <option value="Web Development">🌐 Web Development</option>
+          <option value="App Development">📱 App Development</option>
+          <option value="Logo Design">🎨 Logo Design</option>
+          <option value="Social Media Management">PPT</option>
+          <option value="AI Chatbot Integration">🤖 AI Chatbot Integration</option>
+        </select>
+        <label for="Membership">Select Membership (Optional,If want)</label>
+        <select id="Membership" name="Membership">
+          <option value="">--Choose Membership--</option>
+          <option value="5 + 1 short editing">5 Full Lenght Video Editing + 1 short Video Editing Free</option>
+          <option value="full cerative">Full Creative Support</option>
+          <option value="">10 Full Videos + 5 Thumbnails, Priority Editing Queue, 10% off Website Development, Access to
+            AI Tools</option>
+          <option value=""> Unlimited Edits, Thumbnails & Banners, Free Website / App Support, Priority 24/7 Service
+          </option>
+          <option value="">3 Video Edits / month, Free Thumbnail with Each Video, Early Access to Averian Academy, Earn
+            Referral Coins</option>
+          <!-- <--<option value="Web Development">🌐 Web Development</option>
   <option value="App Development">📱 App Development</option>
   <option value="Logo Design">🎨 Logo Design</option>
   <option value="Social Media Management">📱 Social Media Management</option>
   <option value="AI Chatbot Integration">🤖 AI Chatbot Integration</option> -->
-</select>
+        </select>
 
 
-      <label for="details">Order Details</label>
-      <textarea id="details" name="details" placeholder="Enter instructions..." required></textarea>
+        <label for="details">Order Details</label>
+        <textarea id="details" name="details" placeholder="Enter instructions..." required></textarea>
         <label for="file" class="btn btn-primary">Upload File or Video(Optional)</label>
         <input type="file" id="file" name="files" multiple>
 
-<a href="https://chat.whatsapp.com/LbeYZAwJd3xLICkabQFIuI" target="_blank" class="btn btn-primary">Join WhatsApp Community</a>
+        <a href="https://chat.whatsapp.com/LbeYZAwJd3xLICkabQFIuI" target="_blank" class="btn btn-primary">Join WhatsApp
+          Community</a>
 
-<div class="agreement-inline">
-  <p id="text">
-    Note: Must join our WhatsApp community for updates and completion of order.
-    <input type="checkbox" id="agreeWhatsapp" name="agreeWhatsapp">
-  </p>
-  <p id="text">
-    Note: Must contact our admin from our community for payment instraction.
-    <input type="checkbox" id="agreePayment" name="agreePayment">
-  </p>
-</div>
+        <div class="agreement-inline">
+          <p id="text">
+            Note: Must join our WhatsApp community for updates and completion of order.
+            <input type="checkbox" id="agreeWhatsapp" name="agreeWhatsapp">
+          </p>
+          <p id="text">
+            Note: Must contact our admin from our community for payment instraction.
+            <input type="checkbox" id="agreePayment" name="agreePayment">
+          </p>
+        </div>
 
 
-      <button type="submit" class="btn">Submit Order</button>
-    </form>
-<div class="payment-section" style="display: flex;">
-    
-    <div class="qr-code-container">
-        <img src="https://www.kali.org/wallpapers/images/2025/kali-tiles-purple.jpg" alt="QR Code for Payment" id="qrcode">
-    </div>
-    
-    <div class="payment-options">
-        <h4>Choose Your Payment Method</h4>
-        
-        <div class="option">
+        <button type="submit" class="btn">Verify Order</button>
+      </form>
+      <div class="payment-section" style="display: none;">
+
+        <div class="qr-code-container">
+          <img src="" alt="QR Code for Payment" id="qrcode">
+        </div>
+
+        <div class="payment-options">
+          <h4>Choose Your Payment Method</h4>
+
+          <div class="option">
             <input type="radio" id="payNow" name="paymentOption" value="now" checked>
             <label for="payNow">
-                <strong>Pay 10% Advance Now (Recommended)</strong>
-                <p>Secure your order and get priority service with a small advance payment.</p>
+              <strong>Pay 10% Advance Now (Recommended)</strong>
+              <p>Secure your order and get priority service with a small advance payment.</p>
             </label>
-        </div>
-        
-        <div class="option">
+          </div>
+
+          <div class="option">
             <input type="radio" id="payLater" name="paymentOption" value="later">
             <label for="payLater">
-                <strong>Pay in Full After Delivery</strong>
-                <p>Complete your payment once you have received and approved the final work.</p>
+              <strong>Pay in Full After Delivery</strong>
+              <p>Complete your payment once you have received and approved the final work.</p>
             </label>
+          </div>
+          <h4 id="price"></h4>
         </div>
-    </div>
-    
-</div>
-<div id="otpSection" style="display:none;">
-  <input type="text" id="otpInput" placeholder="Enter OTP" maxlength="6">
-  <button id="verifyOtpBtn">Verify OTP</button>
-  <p id="otpWarning" class="otp-warning-text"></p>
-</div>
+        <button type="button" class="btn" id="donebtn" href="/backend/public/index.html">Submit order/Pay on Delivery</button>
+      <button style="display: none;" type="submit" id="orderdone">Confirm order</button>
+      </div>
+
+      <div id="otpSection" style="display:none;">
+        <input type="text" id="otpInput" placeholder="Enter OTP" maxlength="6">
+        <button id="verifyOtpBtn">Verify OTP</button>
+        <p id="otpWarning" class="otp-warning-text"></p>
+      </div>
       <p id="confirmation" class="confirmation"></p>
+    </section>
+  </main>
+
+
+  <section class="section" id="workflow">
+    <h2>How We Work</h2>
+    <p>After you place your order, we assign it to our professionals. Once the work is complete, we send it to you via
+      WhatsApp, email, SMS, or directly through our website. You pay the remaining amount after receiving your completed
+      work. Initial payment of 10% is required when ordering or contact admin via our WhatsApp community for payment
+      instructions.</p>
   </section>
-</main>
 
+  <section class="section" id="trust">
+    <h2>Trust & Payment</h2>
+    <p>We take full responsibility for your order. Payment is only required after the completion of work, ensuring your
+      safety and trust. Our platform is verified, and all communications and transactions are secure. You can
+      confidently place your order knowing that your work is in safe hands.</p>
+  </section>
 
-<section class="section" id="workflow">
-  <h2>How We Work</h2>
-  <p>After you place your order, we assign it to our professionals. Once the work is complete, we send it to you via WhatsApp, email, SMS, or directly through our website. You pay the remaining amount after receiving your completed work. Initial payment of 10% is required when ordering or contact admin via our WhatsApp community for payment instructions.</p>
-</section>
+  <footer class="footer">
+    <div class="logo">NexAverian</div>
+    <div class="quick-links">
+      <a href="index.html">Home</a> |
+      <a href="#orderForm">Order Now</a> |
+      <a href="#workflow">How It Works</a> |
+      <a href="#trust">Trust & Payment</a>
+    </div>
+    <div class="socials">
+      <a href="https://www.instagram.com/averian.official/">Instagram</a> |
+      <a href="#">YouTube</a> |
+      <a href="#">LinkedIn</a> |
+      <a href="#">WhatsApp</a>
+    </div>
+    <p>© <span id="year"></span> NexAverian | All rights reserved</p>
+  </footer>
 
-<section class="section" id="trust">
-  <h2>Trust & Payment</h2>
-  <p>We take full responsibility for your order. Payment is only required after the completion of work, ensuring your safety and trust. Our platform is verified, and all communications and transactions are secure. You can confidently place your order knowing that your work is in safe hands.</p>
-</section>
-
-<footer class="footer">
-  <div class="logo">NexAverian</div>
-  <div class="quick-links">
-    <a href="index.html">Home</a> | 
-    <a href="#orderForm">Order Now</a> | 
-    <a href="#workflow">How It Works</a> | 
-    <a href="#trust">Trust & Payment</a>
-  </div>
-  <div class="socials">
-    <a href="https://www.instagram.com/averian.official/">Instagram</a> | 
-    <a href="#">YouTube</a> | 
-    <a href="#">LinkedIn</a> | 
-    <a href="#">WhatsApp</a>
-  </div>
-  <p>© <span id="year"></span> NexAverian | All rights reserved</p>
-</footer>
-
-<script src="order.js"></script>
+  <script src="order.js"></script>
 </body>
+
 </html>

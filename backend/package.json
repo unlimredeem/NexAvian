@@ -17,7 +17,7 @@
     "nodemailer",
     "multer"
   ],
-  "author": "Shaurya prabhakar",
+  "author": "NexAverian",
   "license": "ISC",
   "dependencies": {
     "@sendgrid/mail": "^8.1.6",

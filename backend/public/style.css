@@ -24,6 +24,54 @@ body.light {
     --shadow: 0 8px 30px rgba(10, 102, 255, 0.06);
 }
 
+
+#orderbtn1,
+#orderbtn2 {
+    background: black;
+    color: #ffffff;
+}
+
+#orderbtn1:hover,
+#orderbtn2:hover {
+    box-shadow: 0 10px 30px #050608;
+    background-color: #0a66ff;
+}
+
+#price {
+    font-family: "Inter", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--muted);
+    line-height: 1.5;
+    text-align: center;
+    width: 100%;
+    margin: 20px 0;
+    padding: 16px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: all 0.3s var(--ease);
+}
+
+#orderdone {
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+    color: #001018;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+#orderdone:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 234, 255, 0.1);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -197,19 +245,19 @@ main {
 }
 
 .terminal.is-fullscreen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1000;
-  margin: 0;
-  border-radius: 0;
-  visibility: visible;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    margin: 0;
+    border-radius: 0;
+    visibility: visible;
 }
 
-body.terminal-fullscreen-active > * {
-  visibility: hidden;
+body.terminal-fullscreen-active>* {
+    visibility: hidden;
 }
 
 /* .terminal {
@@ -304,6 +352,7 @@ body.terminal-fullscreen-active > * {
     background: #ffffff;
     border-radius: var(--radius);
 }
+
 #qrcode {
     display: block;
     width: 180px;
@@ -317,6 +366,7 @@ body.terminal-fullscreen-active > * {
     flex-direction: column;
     gap: 16px;
 }
+
 .payment-options h4 {
     color: var(--accent);
     margin: 0 0 10px;
@@ -330,20 +380,24 @@ body.terminal-fullscreen-active > * {
     transition: border-color 0.3s var(--ease);
     cursor: pointer;
 }
+
 .option:hover {
     border-color: var(--accent-strong);
 }
+
 .option label {
     display: block;
     padding: 16px 16px 16px 50px;
     cursor: pointer;
 }
+
 .option label strong {
     color: var(--text);
     font-weight: 600;
     display: block;
     margin-bottom: 4px;
 }
+
 .option label p {
     color: var(--muted);
     font-size: 0.9rem;
@@ -369,6 +423,7 @@ body.terminal-fullscreen-active > * {
     border-radius: 50%;
     transition: all 0.2s;
 }
+
 .option label::after {
     content: '';
     position: absolute;
@@ -381,28 +436,32 @@ body.terminal-fullscreen-active > * {
     border-radius: 50%;
     transition: transform 0.2s var(--ease);
 }
-.option input[type="radio"]:checked + label::before {
+
+.option input[type="radio"]:checked+label::before {
     border-color: var(--accent);
 }
-.option input[type="radio"]:checked + label::after {
+
+.option input[type="radio"]:checked+label::after {
     transform: translateY(-50%) scale(1);
 }
-.option input[type="radio"]:checked ~ .option,
+
+.option input[type="radio"]:checked~.option,
 .option:has(input:checked) {
     border-color: var(--accent);
 }
-.option input[type="radio"]:checked {
 
-}
+.option input[type="radio"]:checked {}
 
 
 @media (max-width: 768px) {
     .payment-section {
         flex-direction: column;
     }
+
     .qr-code-container {
         margin: 0 auto 20px;
     }
+
     .payment-options h4 {
         text-align: center;
     }
@@ -484,6 +543,17 @@ body.terminal-fullscreen-active > * {
 
 .test {
     font-style: italic;
+}
+
+#orderbtn1 {
+    color: white;
+    background-color: black;
+
+}
+
+#orderbtn2 {
+    color: white;
+
 }
 
 
@@ -772,6 +842,7 @@ body.terminal-fullscreen-active > * {
     main {
         padding-top: 60px;
     }
+
 
     .hero {
         flex-direction: column;

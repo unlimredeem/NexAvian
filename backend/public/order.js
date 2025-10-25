@@ -68,7 +68,7 @@
 //       warningElement.style.fontSize = "0.9em";
 //       warningElement.style.color = "#888";
 //       otpSection.appendChild(warningElement);
-      
+
 //       let email = document.getElementById("email");
 //       showConfirmation(`✅ OTP sent to ${email.value} for Order ID: ${data.orderId}.`);
 //     } else { showConfirmation(data.message || "❌ Something went wrong. Please try again.", 5000, true); }
@@ -93,7 +93,7 @@
 //       confirmation.textContent = "❌ Incorrect OTP. Please try again.";
 //       confirmation.classList.add("show");
 //       setTimeout(() => confirmation.classList.remove("show"), 3000);
-      
+
 //       otpInput.style.border = "2px solid #ff4d4f";
 //       // -----------------------------
 //     }
@@ -106,11 +106,11 @@
 //   }
 // });
 
-// const toggleBtn = document.getElementById("themeToggle");
-// toggleBtn.addEventListener("click", () => {
-//   document.body.classList.toggle("light");
-//   toggleBtn.textContent = document.body.classList.contains("light") ? "🌙" : "☀️";
-// });
+const toggleBtn = document.getElementById("themeToggle");
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+  toggleBtn.textContent = document.body.classList.contains("light") ? "🌙" : "☀️";
+});
 
 // const orderForm = document.getElementById("orderForm");
 // const otpSection = document.getElementById("otpSection");
@@ -190,7 +190,7 @@
 //       warningElement.style.fontSize = "0.9em";
 //       warningElement.style.color = "#888";
 //       otpSection.appendChild(warningElement);
-      
+
 //       let email = document.getElementById("email");
 //       showConfirmation(`✅ OTP sent to ${email.value} for Order ID: ${data.orderId}.`);
 //     } else { showConfirmation(data.message || "❌ Something went wrong. Please try again.", 5000, true); }
@@ -214,7 +214,7 @@
 //       confirmation.textContent = "❌ Incorrect OTP. Please try again.";
 //       confirmation.classList.add("show");
 //       setTimeout(() => confirmation.classList.remove("show"), 3000);
-      
+
 //       otpInput.style.border = "2px solid #ff4d4f";
 //     }
 //   } catch {
@@ -233,6 +233,15 @@ const confirmation = document.getElementById("confirmation");
 const agreeWhatsapp = document.getElementById("agreeWhatsapp");
 const agreePayment = document.getElementById("agreePayment");
 let currentOrderId = null;
+const videoEdit = 100
+const ThumbnailDesign = 50
+const LogoDesign = 150
+const websiteDesign = 199
+const appdevlopment = 299
+const pptDesign = 129
+const aiservices = 299
+const chatbot = 299
+
 
 function showConfirmation(msg, duration = 6000, isError = false) {
   const old = document.querySelector(".floating-alert");
@@ -329,10 +338,70 @@ orderForm.addEventListener("submit", async (e) => {
 });
 
 function qrcode() {
-  let qr = document.getElementById("qrcode");
-  qr.src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + currentOrderId;
-  document.querySelector(".qr").style.display = "flex";
+  const selectedOption = document.querySelector('input[name="paymentOption"]:checked').value;
+  const order = document.getElementById("orderdone");
+  const price = document.getElementById("price");
+  let serviceselect = document.getElementById("service");
+  let selectedIndex = serviceselect.selectedIndex;
+  if (selectedOption === "now") {
+    if (!selectedIndex) {
+      showConfirmation("❌ Please select a service to see the QR code.", 5000, true);
+    }
+    else {
+      let qr = document.querySelector(".payment-section");
+      qr.src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=";
+      qr.style.display = "flex";
+      // console.log(selectedIndex);
+      if (selectedIndex == 1) {
+        showConfirmation("Our will contact you for membership and you will receive a person helper.");
+      }
+      else if (selectedIndex == 2) {
+        price.innerText = `Total ${videoEdit} and 10% advance payment is ${videoEdit - (videoEdit * 0.10)}. The amount to be paid via QR code is $${videoEdit - (videoEdit * 0.10)}.`;
+      }
+      else if (selectedIndex == 3) {
+        price.innerText = `Total ${ThumbnailDesign} and 10% advance payment is ${ThumbnailDesign - (ThumbnailDesign * 0.10)}. The amount to be paid via QR code is $${ThumbnailDesign - (ThumbnailDesign * 0.10)}.`;
+      }
+      else if (selectedIndex == 4) {
+        price.innerText = `Total ${aiservices} and 10% advance payment is ${aiservices - (aiservices * 0.10)}. The amount to be paid via QR code is $${aiservices - (LogoDesign * 0.10)}.`;
+      }
+      else if (selectedIndex == 5) {
+        price.innerText = `Total ${websiteDesign} and 10% advance payment is ${websiteDesign - (websiteDesign * 0.10)}. The amount to be paid via QR code is $${websiteDesign - (websiteDesign * 0.10)}.`;
+      }
+      else if (selectedIndex == 6) {
+        price.innerText = `Total ${appdevlopment} and 10% advance payment is ${appdevlopment - (appdevlopment * 0.10)}. The amount to be paid via QR code is $${appdevlopment - (appdevlopment * 0.10)}.`;
+      }
+      else if (selectedIndex == 7) {
+        price.innerText = `Total ${LogoDesign} and 10% advance payment is ${LogoDesign - (pptDesign * 0.10)}. The amount to be paid via QR code is $${LogoDesign - (pptDesign * 0.10)}.`;
+      }
+      else if (selectedIndex == 8) {
+        price.innerText = `Total ${pptDesign} and 10% advance payment is ${pptDesign - (pptDesign * 0.10)}. The amount to be paid via QR code is $${pptDesign - (pptDesign * 0.10)}.`;
+      }
+      else if (selectedIndex == 9) {
+        price.innerText = `Total ${chatbot} and 10% advance payment is ${chatbot - (chatbot * 0.10)}. The amount to be paid via QR code is $${chatbot - (chatbot * 0.10)}.`;
+      }
+      order.ariaDisabled = true;
+      order.innerText = "Confirm order after payment";
+    }
+  } else {
+    qr.addEventListener("click", () => {
+      showConfirmation("💡 You chose to pay later. Please be ready with the payment when our team contacts you." , 1000 , true);
+      const qr = document.querySelector(".payment-section");
+      qr.style.display = "none";
+      order.ariaDisabled = false;
+      order.innerText = "Confirm order";
+      order.style.display = "flex";
+      price.innerText = "";
+      order.addEventListener("click", () => {
+        showConfirmation("✅ Your order has been submitted successfully!. We will contact you soon. Thank You for ordering with us.", 2000, true);
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 2000);
+      });
+    });
+  }
 }
+
+
 
 verifyOtpBtn.addEventListener("click", async () => {
   const otp = otpInput.value.trim();
@@ -366,5 +435,11 @@ verifyOtpBtn.addEventListener("click", async () => {
     otpInput.style.border = "2px solid #ff4d4f";
   }
 });
+  let donebtn = document.getElementById('donebtn');
+  if (donebtn) {
+    donebtn.addEventListener('click', () => {
+      window.location.href = "index.html";
+    });
+  }
 
-qrcode();
+// qrcode();
