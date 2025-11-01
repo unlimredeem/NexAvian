@@ -839,7 +839,7 @@ orderForm.addEventListener("submit", async (e) => {
       otpSection.style.display = "flex";
       otpInput.focus();
       const email = document.getElementById("email").value;
-      showNotification(`OTP has been sent to ${email}. Please check your inbox or spam folder.`);
+      showNotification(`✅ OTP sent to ${email} for Join ID: ${data.joinId}.. Please check your inbox or spam folder.`);
     } else {
       showNotification(data.message || "❌ Something went wrong. Please try again.", 5000, true);
     }
