@@ -233,7 +233,7 @@ function showNotification(msg, duration = 6000, isError = false) {
 }
 
 const phone = '919654325224';
-const message = 'Hello! I would like to order a package.';
+const message = "I want to ask something to you or my order isn't completed yet.";
 const waBtn = document.getElementById('waBtn');
 if (waBtn) { waBtn.addEventListener('click', () => { window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank', 'noopener'); }); }
 
