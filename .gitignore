@@ -37,7 +37,7 @@ node_modules/
 bower_components/
 jspm_packages/
 web_modules/
-
+uploads/
 # Optional caches
 .npm
 .eslintcache
