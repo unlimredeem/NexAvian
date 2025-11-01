@@ -897,13 +897,13 @@ document.getElementById("service").addEventListener('change', updatePaymentUI);
 doneBtn.addEventListener("click", () => {
   const selectedOption = document.querySelector('input[name="paymentOption"]:checked').value;
   if (selectedOption === 'now') {
-    showNotification("✅ Order confirmed! Please scan the QR and contact us on WhatsApp with the screenshot.", 7000);
+    showNotification("✅ Order confirmed! We will contact you soon for if you haven't done payment. Thnk you for ordering with us.", 7000);
   } else {
     showNotification("✅ Order confirmed for Pay on Delivery! We will contact you soon.", 5000);
   }
 
   setTimeout(() => {
-    sessionStorage.setItem("notification", "✅ Your order is confirmed! We will be in touch shortly.");
+    sessionStorage.setItem("notification", "✅ Your order is confirmed! We will be in touch shortly. We will conatct you in 5 minutes.");
     window.location.href = "index.html";
   }, 2500);
 });
