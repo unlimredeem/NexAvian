@@ -5,16 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Join Averian</title>
-  <link rel="stylesheet" href="styleJoin.css">
+  <link rel="stylesheet" href="indexJoin.css">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/jpg" href="/frontend/go.jpg">
   <link rel="stylesheet" href="order.css">
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600;700&display=swap"
     rel="stylesheet">
+    <script src="loader.js" defer></script>
 </head>
 
 <body>
   <canvas id="bgCanvas"></canvas>
+  <div id="page-loader"></div>
 
   <header class="nav" id="navbar">
     <div class="logo" id="logo">NexAverian</div>
@@ -23,10 +25,12 @@
       <a href="#why">Why Join</a>
       <a href="#form">Join Form</a>
       <a href="#trust">Trust</a>
+            <a href="order.html" class="btn btn-outline nav-cta-mobile" id="orderbtn1">Order Now</a>
+      <a href="indexJoin.html" class="btn btn-primary nav-cta-mobile">Join Now</a>
     </nav>
     <div class="nav-actions">
       <button id="themeToggle" class="theme-toggle">☀️</button>
-            <a href="order.html" class="btn btn-outline nav-cta-mobile" id="orderbtn2">Order Now</a>
+      <a href="order.html" class="btn btn-outline nav-cta-desktop" id="orderbtn2">Order Now</a>
       <a href="indexJoin.html" class="btn btn-primary nav-cta-desktop" id="joinBtn">Join Us</a>
       <button class="hamburger" id="hamburger">
         <span class="hamburger-bar"></span>
@@ -123,3 +127,132 @@
 </body>
 
 </html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Averian</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/jpg" href="/frontend/go.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="page-loader"></div>
+  <canvas id="bgCanvas"></canvas>
+
+  <header class="nav" id="navbar">
+    <div class="logo" id="logo">NexAverian</div>
+    <nav class="nav-menu" id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="#why">Why Join</a>
+      <a href="#form">Join Form</a>
+      <a href="#trust">Trust</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="themeToggle" class="theme-toggle">☀️</button>
+      <a href="order.html" class="btn btn-outline nav-cta-desktop" id="orderbtn2">Order Now</a>
+      <a href="indexJoin.html" class="btn btn-primary nav-cta-desktop" id="joinBtn">Join Us</a>
+      <button class="hamburger" id="hamburger">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="why">
+      <h2 class="section-title">Why Join NexAvian?</h2>
+      <p class="section-text">
+        Averian is a fast-growing digital services platform where creativity meets innovation. Join us to work on
+        exciting projects, learn new skills, earn loyalty rewards, and become part of our supportive community. Our team
+        combines AI power with human expertise to deliver top-quality results for creators, students, and businesses.
+      </p>
+    </section>
+
+    <section class="section join-section" id="form">
+      <h2 class="section-title">Join Us Now</h2>
+      <form id="joinForm" class="join-form">
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="Full Name" required>
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <label for="skills">Skills</label>
+        <input type="text" name="skills" placeholder="Skills / Expertise" required>
+        <label for="gender">Gender</label>
+        <select name="gender" required>
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <label for="dob">Date of Birth</label>
+        <input type="date" name="dob" placeholder="Date of Birth" required>
+        <label for="phone">Phone Number</label>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+
+        <label for="file" class="btn btn-primary">Upload Resume</label>
+        <input type="file" id="file" name="files" multiple required style="display:none;">
+
+        <a href="https://chat.whatsapp.com/LbeYZAwJd3xLICkabQFIuI" target="_blank" class="btn btn-primary">Join WhatsApp
+          Community</a>
+
+        <div class="agreement-inline">
+          <p id="text">
+            Note: Must join our WhatsApp community for updates and completion of order.
+            <input type="checkbox" id="agreeWhatsapp" name="agreeWhatsapp">
+          </p>
+          <p id="text">
+            Note: Must contact our admin from our community for payment instraction.
+            <input type="checkbox" id="agreePayment" name="agreePayment">
+          </p>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Application</button>
+
+      </form>
+
+      <div id="otpSection" style="display:none;">
+        <p>An OTP has been sent to your email to verify your application.</p>
+        <input type="text" id="otpInput" placeholder="Enter OTP" maxlength="6">
+        <button id="verifyOtpBtn" class="btn btn-primary">Verify OTP</button>
+        <p id="otpWarning" class="otp-warning-text"></p>
+      </div>
+    </section>
+
+
+    <section class="section" id="trust">
+      <h2 class="section-title">Why NexAverian is Trustworthy</h2>
+      <p class="section-text">
+        Averian is a verified platform providing digital services with transparency and security. We ensure prompt
+        delivery, secure communication, and a community of verified creators and clients. Your work and information are
+        always safe with us. Join confidently!
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="logo">NexAverian</div>
+    <div class="quick-links">
+      <a href="index.html">Home</a> |
+      <a href="#why">Why Join</a> |
+      <a href="#form">Join Form</a> |
+      <a href="#trust">Trust</a>
+    </div>
+    <div class="socials">
+      <a href="#">Instagram</a> |
+      <a href="#">YouTube</a> |
+      <a href="#">LinkedIn</a> |
+      <a href="#">WhatsApp</a>
+    </div>
+    <p>© <span id="year"></span> NexAverian | All rights reserved</p>
+  </footer>
+
+  <script src="indexJoin.js"></script>
+</body>
+
+</html> -->
