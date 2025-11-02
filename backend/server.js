@@ -1271,7 +1271,7 @@ const sgMail = require("@sendgrid/mail");
 require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
